@@ -1,0 +1,55 @@
+---
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<link 
+			rel="preload" 
+			href="/fonts/inter-latin-400-normal.woff2" 
+			as="font" 
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		min-height: 100%;
+	}
+
+	html {
+		box-sizing: border-box;
+		background: rgb(2,0,36);
+		background: linear-gradient(
+			180deg,
+			rgba(2,0,36,1) 0%,
+			rgba(9,9,121,1) 35%,
+			rgba(0,212,255,1) 100%
+		);
+		color: white;
+	}
+
+	*, *::after, *::before {
+		box-sizing: inherit;
+	}
+
+	@font-face {
+		font-family: InterLatin;
+		src: url("/fonts/inter-latin-400-normal.woff2") format("woff2");
+		font-weight: 400;
+		font-style: normal;
+	}
+</style>
