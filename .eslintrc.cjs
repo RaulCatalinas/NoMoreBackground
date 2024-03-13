@@ -16,10 +16,17 @@ module.exports = {
       env: {
         node: true
       },
-      files: ['*.ts', '*.tsx'],
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script'
+      }
+    },
+    {
+      files: ['*.ts'],
       parserOptions: {
         sourceType: 'module'
       }
+    }
     },
     {
       files: ['*.astro'],
