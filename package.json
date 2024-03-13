@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "co": "sui-mono commit"
+    "co": "sui-mono commit",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@astrojs/check": "0.5.9",
