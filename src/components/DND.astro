@@ -1,8 +1,8 @@
 ---
-import UploadIcon from "@/icons/UploadIcon.astro"
+import UploadIcon from '@/icons/UploadIcon.astro'
 ---
 
-<div 
+<div
   class="flex flex-col items-center justify-center border border-dashed border-gray-300 rounded-md p-4"
   id="drop-zone"
 >
@@ -19,35 +19,38 @@ import UploadIcon from "@/icons/UploadIcon.astro"
     id="file-input"
     multiple
   />
-  
+
   <UploadIcon />
 </div>
 
 <script>
-  import { $ } from "@/utils/dom"
+  import { $ } from '@/utils/dom'
 
-  const dropZone = $("#drop-zone")
-  const fileInput = $("#file-input")
+  const dropZone = $('#drop-zone')
+  const fileInput = $('#file-input')
 
-  if (dropZone instanceof HTMLDivElement && fileInput instanceof HTMLInputElement) {
-    dropZone.addEventListener('dragover', (event) => {
-      event.stopPropagation();
-      event.preventDefault();
-
-      if (event.dataTransfer == null) return
-
-      event.dataTransfer.dropEffect = "copy"
-    });
-
-    dropZone.addEventListener("drop", (event) => {
-      event.stopPropagation();
-      event.preventDefault();
+  if (
+    dropZone instanceof HTMLDivElement &&
+    fileInput instanceof HTMLInputElement
+  ) {
+    dropZone.addEventListener('dragover', event => {
+      event.stopPropagation()
+      event.preventDefault()
 
       if (event.dataTransfer == null) return
 
-      const fileList = event.dataTransfer.files;
+      event.dataTransfer.dropEffect = 'copy'
+    })
 
-      console.log(fileList);
+    dropZone.addEventListener('drop', event => {
+      event.stopPropagation()
+      event.preventDefault()
+
+      if (event.dataTransfer == null) return
+
+      const fileList = event.dataTransfer.files
+
+      console.log(fileList)
     })
   }
 </script>
