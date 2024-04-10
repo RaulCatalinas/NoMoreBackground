@@ -1,0 +1,20 @@
+---
+interface Props {
+  value: string
+  text: string
+  selected?: boolean
+  isPlaceholder?: boolean
+}
+
+const { value, text, selected, isPlaceholder } = Astro.props
+---
+
+<option
+  class={`bg-white text-sm text-black ${isPlaceholder ? 'is-placeholder' : ''}`}
+  {value}
+  {selected}
+  disabled={isPlaceholder === true}
+  hidden={isPlaceholder === true}
+>
+  {text}
+</option>

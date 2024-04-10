@@ -1,0 +1,48 @@
+---
+// Components
+import Option from './Option.astro'
+
+// Layouts
+import DropdownLayout from '@/layouts/DropdownLayout.astro'
+---
+
+<DropdownLayout id="contact-method" labelText="Contact Method">
+  <Option value="" text="Social media" selected={true} isPlaceholder={true} />
+  <Option value="facebook" text="Facebook" />
+  <Option value="instagram" text="Instagram" />
+  <Option value="twitter" text="Twitter" />
+  <Option value="github" text="GitHub" />
+</DropdownLayout>
+
+<script>
+  // Constants
+  import { SOCIAL_NETWORKS } from '@/constants/social-networks'
+
+  // Utils
+  import { $ } from '@/utils/dom'
+
+  type SocialNetworkKey = keyof typeof SOCIAL_NETWORKS
+
+  const $dropdownContact = $('#contact-method') as HTMLSelectElement
+
+  const isThereAnyPlaceholder = $('.is-placeholder')
+
+  if (isThereAnyPlaceholder != null) {
+    $dropdownContact.style.color = '#999'
+  }
+
+  $dropdownContact?.addEventListener('change', event => {
+    const lastSelected = $dropdownContact.selectedIndex
+
+    if (lastSelected !== 0) {
+      $dropdownContact.style.color = '#000'
+    }
+
+    const socialNetworkKey = (event.target as HTMLSelectElement)
+      .value as SocialNetworkKey
+
+    const socialNetwork = SOCIAL_NETWORKS[socialNetworkKey]
+
+    open(socialNetwork, '_blank')
+  })
+</script>
