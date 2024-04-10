@@ -4,7 +4,9 @@
 		"bradlc.vscode-tailwindcss",
 		"davidanson.vscode-markdownlint",
 		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode",
+		"yoavbls.pretty-ts-errors",
+		"oven.bun-vscode"
 	],
 	"unwantedRecommendations": []
 }

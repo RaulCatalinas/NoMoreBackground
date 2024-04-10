@@ -1,0 +1,40 @@
+<div class="flex items-center justify-center">
+  <div
+    class={`
+      p-5 text-black bg-gray-100 
+      border-dashed w-[calc(100vw_-_64px)] h-[calc(100vh_-_64px)]
+      border-[#eee] border-2 rounded-sm
+      outline-none transition hover:cursor-pointer
+    `}
+    id="dropzone"
+  >
+    <p>Drag & drop some images here, or click to select images</p>
+  </div>
+</div>
+
+<script>
+  // Dropzone
+  import Dropzone from 'dropzone'
+
+  // Utils
+  import { fileIsInvalid, removeInvalidFile } from '@/utils/dropzone'
+
+  const dropzone = new Dropzone('#dropzone', {
+    acceptedFiles: 'image/*',
+    url: '/api/remove',
+    autoProcessQueue: false,
+    autoQueue: false
+  })
+
+  dropzone.on('addedfile', file => {
+    if (fileIsInvalid(file)) removeInvalidFile({ dropzone, file })
+    else dropzone.processFile(file)
+  })
+
+  dropzone.on('addedfiles', files => {
+    for (const file of files) {
+      if (fileIsInvalid(file)) removeInvalidFile({ dropzone, file })
+      else dropzone.processFile(file)
+    }
+  })
+</script>
