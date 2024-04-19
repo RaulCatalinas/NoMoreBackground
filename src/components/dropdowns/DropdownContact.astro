@@ -4,10 +4,11 @@ import Option from './Option.astro'
 
 // Layouts
 import DropdownLayout from '@/layouts/DropdownLayout.astro'
+import Placeholder from './Placeholder.astro'
 ---
 
 <DropdownLayout id="contact-method" labelText="Contact Method">
-  <Option value="" text="Social media" selected={true} isPlaceholder={true} />
+  <Placeholder />
   <Option value="facebook" text="Facebook" />
   <Option value="instagram" text="Instagram" />
   <Option value="twitter" text="Twitter" />
@@ -25,19 +26,7 @@ import DropdownLayout from '@/layouts/DropdownLayout.astro'
 
   const $dropdownContact = $('#contact-method') as HTMLSelectElement
 
-  const isThereAnyPlaceholder = $('.is-placeholder')
-
-  if (isThereAnyPlaceholder != null) {
-    $dropdownContact.style.color = '#999'
-  }
-
   $dropdownContact?.addEventListener('change', event => {
-    const lastSelected = $dropdownContact.selectedIndex
-
-    if (lastSelected !== 0) {
-      $dropdownContact.style.color = '#000'
-    }
-
     const socialNetworkKey = (event.target as HTMLSelectElement)
       .value as SocialNetworkKey
 
