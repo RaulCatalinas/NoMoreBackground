@@ -23,7 +23,7 @@
     "@s-ui/mono": "2.45.0",
     "@types/dropzone": "5.7.8",
     "@types/toastify-js": "1.12.3",
-    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/eslint-plugin": "7.7.1",
     "eslint": "9.1.1",
     "eslint-config-standard-with-typescript": "43.0.1",
     "eslint-plugin-astro": "0.34.0",
