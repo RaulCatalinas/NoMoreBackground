@@ -12,9 +12,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/check": "0.9.3",
+    "@astrojs/check": "0.9.4",
     "@astrojs/tailwind": "5.1.1",
-    "astro": "4.15.9",
+    "astro": "4.15.12",
     "dropzone": "6.0.0-beta.2",
     "tailwindcss": "3.4.13",
     "toastify-js": "1.12.0"
